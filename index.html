@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Typing Speed Test</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- 🎆 Animated Background -->
+  <div class="animated-bg"></div>
+
+  <!-- Welcome -->
+  <div id="welcomeScreen" class="centered-screen">
+    <h1 class="big-title">Typing Speed Test App</h1>
+    <div class="welcome-buttons">
+      <button id="loginOptionBtn" class="primary-btn">Login</button>
+      <button id="registerOptionBtn" class="primary-btn">Register</button>
+    </div>
+  </div>
+
+  <!-- Register Email -->
+  <div id="registerEmailScreen" class="centered-screen hidden">
+    <h2>Register - Step 1</h2>
+    <input type="email" id="regEmailInput" placeholder="Enter Email" />
+    <button id="regNextBtn" class="primary-btn">Next</button>
+  </div>
+
+  <!-- Register Username -->
+  <div id="registerUsernameScreen" class="centered-screen hidden">
+    <h2>Register - Step 2</h2>
+    <input type="text" id="regUsernameInput" placeholder="Create Username" />
+    <button id="completeRegisterBtn" class="primary-btn">Register</button>
+  </div>
+
+  <!-- Login -->
+  <div id="loginScreen" class="centered-screen hidden">
+    <h2>Login</h2>
+    <input type="text" id="loginUsernameInput" placeholder="Enter Username" />
+    <button id="loginBtn" class="primary-btn">Login</button>
+  </div>
+
+  <!-- Main App -->
+  <div id="mainApp" class="hidden">
+    <div class="app-header">
+      <h2>Typing Speed Test</h2>
+      <div class="profile-dropdown" id="profileDropdown">
+        <span id="profileUsername" class="username-label"></span>
+        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="User" class="profile-icon" id="profileIcon" />
+        <div class="dropdown-content hidden" id="profileMenu">
+          <button id="viewPastBtn">📜 Past Tests</button>
+          <button id="logoutBtn">🚪 Logout</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="dashboard" class="centered-screen">
+      <button id="takeTestBtn" class="primary-btn">🎯 Take Test</button>
+    </div>
+
+    <div id="timerSetup" class="centered-screen hidden">
+      <h3>Set Timer (seconds)</h3>
+      <input type="number" id="timerInput" placeholder="e.g. 60" min="10" max="300" />
+      <button id="startTestBtn" class="primary-btn">Start Test</button>
+    </div>
+
+    <div id="testArea" class="hidden">
+      <div class="timer-display">⏳ Time Left: <span id="liveTimer">--</span>s</div>
+      <div id="paragraphDisplay" class="paragraph-box"></div>
+      <textarea id="textInput" placeholder="Start typing..." disabled></textarea>
+      <button id="submitBtn" class="primary-btn">✅ Submit</button>
+    </div>
+
+    <div id="resultArea" class="centered-screen hidden">
+      <h3>🧠 Performance Analysis</h3>
+      <p>Time: <span id="resultTime">--</span>s</p>
+      <p>Accuracy: <span id="resultAccuracy">--</span>%</p>
+      <p>WPM: <span id="resultWPM">--</span></p>
+      <p>Mistakes: <span id="resultMistakes">--</span></p>
+      <button id="backToHomeBtn" class="primary-btn">🏠 Back to Dashboard</button>
+    </div>
+
+    <div id="pastTestsArea" class="centered-screen hidden">
+      <h3>📘 Your Past Tests</h3>
+      <ul id="pastTestsList"></ul>
+      <button id="closePastTestsBtn" class="primary-btn">🔙 Back</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

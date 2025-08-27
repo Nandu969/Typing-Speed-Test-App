@@ -1,0 +1,339 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: #3a005e;
+  background-color: #f8f0ff;
+  overflow-x: hidden;
+}
+
+/* 🎆 Animated Background */
+.animated-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(120deg, #a855f7, #9333ea, #6b21a8);
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+  z-index: -1;
+  filter: brightness(0.5);
+}
+
+@keyframes gradientFlow {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.centered-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  min-height: 100vh;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.primary-btn {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  margin: 12px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(to right, #a855f7, #9333ea);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.primary-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #9333ea, #a855f7);
+}
+
+.profile-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+.dropdown-content {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 10;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.dropdown-content button {
+  display: block;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  color: #6b21a8;
+  font-weight: bold;
+}
+.dropdown-content button:hover {
+  background: #f3e8ff;
+}
+
+input, textarea {
+  padding: 12px;
+  font-size: 1rem;
+  margin: 10px 0;
+  width: 100%;
+  max-width: 300px;
+  border: 2px solid #c084fc;
+  border-radius: 10px;
+  background: white;
+}
+
+textarea {
+  min-height: 120px;
+  resize: none;
+  font-family: monospace;
+}
+
+.paragraph-box {
+  padding: 20px;
+  margin: 20px 0;
+  background: #faf5ff;
+  border: 2px dashed #d8b4fe;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 700px;
+  font-family: monospace;
+  word-wrap: break-word;
+}
+.timer-display {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px;
+  color: #ffccff; /* Soft violet-pink */
+  text-shadow: 0 0 6px #ff66cc;
+}
+
+#liveTimer {
+  color: #ff66cc;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+#pastTestsList {
+  width: 90%;
+  max-width: 700px;
+  text-align: left;
+  list-style: none;
+  background: #f9f5ff;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+#pastTestsList li {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.app-header {
+  width: 100%;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #c084fc, #9333ea);
+  color: white;
+}
+
+.big-title {
+  font-size: 2.5rem;
+  color: white;
+  text-shadow: 2px 2px #9333ea;
+  margin-bottom: 20px;
+}
+
+.username-label {
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media screen and (max-width: 600px) {
+  .big-title {
+    font-size: 2rem;
+  }
+}
+#welcomeScreen {
+  position: relative;
+  background-image: url('https://assets.skyfilabs.com/images/blog/speed-typing-test.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+  overflow: hidden;
+}
+
+/* Overlay with animated gradient */
+#welcomeScreen::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(45deg, rgba(204, 0, 255, 0.3), rgba(255, 20, 147, 0.3), rgba(153, 50, 204, 0.3));
+  animation: gradientShift 8s ease infinite;
+  z-index: 1;
+}
+
+/* Ensure content is on top */
+#welcomeScreen > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Animation keyframes */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.big-title {
+  font-size: 3rem;
+  color: #fff;
+  text-shadow: 0 0 10px #ff69b4, 0 0 20px #cc00ff;
+}
+#testArea {
+  background-image: url('https://thumbs.dreamstime.com/b/dynamic-k-animated-clock-countdown-to-midnight-visually-stunning-timelapse-new-years-eve-deadline-urgency-experience-373593893.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2rem;
+  color: white;
+  min-height: 100vh;
+  backdrop-filter: brightness(0.9);
+}
+#testArea::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* semi-transparent overlay */
+  z-index: 0;
+}
+
+#testArea > * {
+  position: relative;
+  z-index: 1;
+}
+/* Default styles */
+#paragraphDisplay {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 1rem;
+}
+
+/* After test starts */
+.test-started #paragraphDisplay {
+  color: #ff66cc; /* pinkish violet */
+}
+
+.test-started #textInput {
+  color: #ffff99;        /* yellow text */
+  background-color: #330033;  /* dark purple bg */
+  border: 2px solid #ff66cc;
+}
+#resultArea {
+  color: #ffe6fa;
+  text-shadow: 0 0 6px #cc33ff;
+  background: linear-gradient(145deg, #330033, #4d004d);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 12px #cc33ff;
+}
+
+#resultArea h3 {
+  color: #ff99ff;
+  font-size: 26px;
+  margin-bottom: 1rem;
+}
+
+#resultArea p {
+  font-size: 18px;
+  margin: 6px 0;
+  color: #ffffff;
+}
+#liveTimer {
+  animation: pulseTimer 1.5s infinite;
+}
+
+@keyframes pulseTimer {
+  0%, 100% {
+    text-shadow: 0 0 5px #ff66cc;
+  }
+  50% {
+    text-shadow: 0 0 15px #ff99ff;
+  }
+}
+input:focus {
+  animation: inputGlow 0.5s ease forwards;
+  outline: none;
+}
+
+@keyframes inputGlow {
+  0% {
+    box-shadow: 0 0 0px #ff66cc;
+  }
+  100% {
+    box-shadow: 0 0 12px #ff66cc;
+    border: 2px solid #ff99ff;
+  }
+}
+.primary-btn.clicked {
+  animation: bounceOut 0.4s ease-in-out;
+}
+
+@keyframes bounceOut {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(0.9); opacity: 0.6; }
+}
+
