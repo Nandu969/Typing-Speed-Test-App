@@ -1,4 +1,5 @@
 ⌨️ Typing Speed Test App
+
 📌 About the Project
 
 The Typing Speed Test App is a web-based application built using HTML, CSS, and JavaScript. It allows users to measure their typing speed and accuracy in real time while practicing with randomly generated text.
